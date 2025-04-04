@@ -1,7 +1,56 @@
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
 
+import { auth } from '../../firebase';
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
 export function Welcome() {
+
+  const provider = new GoogleAuthProvider();
+
+  function checkIdToken(idToken) {
+    const functionUrl = "https://us-central1-slack-app-d30aa.cloudfunctions.net/checkIdToken";
+  
+    fetch(functionUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${idToken}`,
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then((data) => {
+        console.log("Réponse de la fonction:", data);
+      })
+      .catch((error) => {
+        console.error("Erreur lors de l'appel de la fonction:", error);
+      });
+  }
+
+  function signIn() {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // L'utilisateur est connecté.
+        const user = result.user;
+
+        // Récupérer le token d'identification (ID token).
+        user.getIdToken().then((idToken) => {
+          // Vous pouvez maintenant utiliser idToken pour appeler votre fonction.
+          console.log("ID Token:", idToken);
+          // Appeler la fonction avec le token.
+          checkIdToken(idToken);
+        });
+      })
+      .catch((error) => {
+        // Gérer les erreurs.
+        console.error("Erreur de connexion:", error);
+      });
+  }
+
   return (
     <main className="flex items-center justify-center pt-16 pb-4">
       <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
@@ -40,6 +89,14 @@ export function Welcome() {
               ))}
             </ul>
           </nav>
+          <button
+            onClick={() => {
+              signIn();
+            }}
+            className="bg-blue-500 text-white px-4 py-2 rounded"
+          >
+            Sign in with Google
+          </button>
         </div>
       </div>
     </main>

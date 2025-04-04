@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-router/node": "^7.4.1",
     "@react-router/serve": "^7.4.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "firebase": "^11.6.0",
     "isbot": "^5.1.17",

@@ -1,5 +1,6 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+const cors = require('cors'); 
 
 // Initialiser Firebase Admin SDK
 admin.initializeApp({
@@ -7,16 +8,26 @@ admin.initializeApp({
   databaseURL: "https://slack-app-d30aa.firebaseio.com"
 });
 
-// Exemple de fonction pour obtenir un token d'authentification
-exports.getAuthToken = functions.https.onRequest((req, res) => {
-  // Générer un token personnalisé pour l'utilisateur
-  const uid = "some-uid"; // Remplacez par l'UID de l'utilisateur
-  admin.auth().createCustomToken(uid)
-    .then((customToken) => {
-      res.send({ token: customToken });
-    })
-    .catch((error) => {
-      console.error("Error creating custom token:", error);
-      res.status(500).send("Error creating custom token");
-    });
+const corsHandler = cors({ origin: true });
+
+// Fonction Cloud Function pour vérifier le token d'authentification Firebase
+exports.checkIdToken = functions.https.onRequest((req, res) => {
+  corsHandler(req, res, async () => {
+    const idToken = req.headers.authorization?.split('Bearer ')[1];
+
+    if (!idToken) {
+      return res.status(401).send('Unauthorized');
+    }
+
+    try {
+      const decodedToken = await admin.auth().verifyIdToken(idToken);
+      const uid = decodedToken.uid;
+      // L'utilisateur est authentifié, vous pouvez utiliser l'UID (uid)
+      // pour accéder à ses données ou effectuer des actions en son nom.
+      res.send(`Hello, user ${uid}!`);
+    } catch (error) {
+      console.error('Error while verifying Firebase ID token:', error);
+      res.status(403).send('Unauthorized');
+    }
+  });
 });
