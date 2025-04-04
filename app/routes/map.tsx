@@ -1,4 +1,7 @@
 import type { Route } from "./+types/map";
+import { Map } from "../components/map/map";
+import Login from "../components/login";
+import Register from "../components/register";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -8,5 +11,11 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <p>TEST</p>;
+  return (
+    <>
+      <Map />
+      <Login />
+      <Register />
+    </>
+  );
 }

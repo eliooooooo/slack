@@ -4,3 +4,11 @@
 # React Router
 /.react-router/
 /build/
+
+# env files
+/.env
+
+# Firebase
+/.firebase
+/firebase-debug.log
+/.firebaserc
