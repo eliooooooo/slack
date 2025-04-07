@@ -10,7 +10,7 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Home() {
+export default function Map2() {
   return (
     <>
       <Map />
