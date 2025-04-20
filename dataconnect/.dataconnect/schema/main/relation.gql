@@ -1,0 +1,720 @@
+extend type Favorite {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Favorite", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Favorite` table.
+  """
+  _count: Int! @fdc_generated(from: "Favorite", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Favorite` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Favorite.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Favorite` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Favorite.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Favorite` table where the `locationId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  locationId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Favorite.locationId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Favorite` table where the `userUid` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userUid_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Favorite.userUid", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `createdAt` field in the `Favorite` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "Favorite.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `Favorite` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "Favorite.createdAt", purpose: QUERY_MAX)
+}
+extend type Location {
+  """
+  ✨ List `Favorite` objects in a one-to-many relationship (where `Favorite`.`location` is this object).
+  """
+  favorites_on_location(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Favorite_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Favorite_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Favorite_Having
+  ): [Favorite!]! @fdc_generated(from: "Favorite.location", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Rating` objects in a one-to-many relationship (where `Rating`.`location` is this object).
+  """
+  ratings_on_location(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Rating_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Rating_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Rating_Having
+  ): [Rating!]! @fdc_generated(from: "Rating.location", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Report` objects in a one-to-many relationship (where `Report`.`location` is this object).
+  """
+  reports_on_location(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Report_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Report_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Report_Having
+  ): [Report!]! @fdc_generated(from: "Report.location", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Location", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Location` table.
+  """
+  _count: Int! @fdc_generated(from: "Location", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Location` table where the `accessInfo` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  accessInfo_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Location.accessInfo", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Location` table where the `activityType` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  activityType_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Location.activityType", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Location` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Location.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Location` table where the `creatorUid` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  creatorUid_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Location.creatorUid", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Location` table where the `description` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  description_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Location.description", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Location` table where the `difficulty` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  difficulty_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Location.difficulty", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Location` table where the `hazards` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  hazards_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Location.hazards", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Location` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Location.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Location` table where the `latitude` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  latitude_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Location.latitude", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Location` table where the `longitude` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  longitude_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Location.longitude", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Location` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  name_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Location.name", purpose: QUERY_COUNT)
+  """
+  ✨ Sum the `difficulty` field in the `Location` table.
+  """
+  difficulty_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "Location.difficulty", purpose: QUERY_SUM)
+  """
+  ✨ Sum the `latitude` field in the `Location` table.
+  """
+  latitude_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Location.latitude", purpose: QUERY_SUM)
+  """
+  ✨ Sum the `longitude` field in the `Location` table.
+  """
+  longitude_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Location.longitude", purpose: QUERY_SUM)
+  """
+  ✨ Average the `difficulty` field in the `Location` table.
+  """
+  difficulty_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Location.difficulty", purpose: QUERY_AVG)
+  """
+  ✨ Average the `latitude` field in the `Location` table.
+  """
+  latitude_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Location.latitude", purpose: QUERY_AVG)
+  """
+  ✨ Average the `longitude` field in the `Location` table.
+  """
+  longitude_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Location.longitude", purpose: QUERY_AVG)
+  """
+  ✨ Minimum of the `createdAt` field in the `Location` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "Location.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `difficulty` field in the `Location` table.
+  """
+  difficulty_min: Int @fdc_generated(from: "Location.difficulty", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `latitude` field in the `Location` table.
+  """
+  latitude_min: Float @fdc_generated(from: "Location.latitude", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `longitude` field in the `Location` table.
+  """
+  longitude_min: Float @fdc_generated(from: "Location.longitude", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `Location` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "Location.createdAt", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `difficulty` field in the `Location` table.
+  """
+  difficulty_max: Int @fdc_generated(from: "Location.difficulty", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `latitude` field in the `Location` table.
+  """
+  latitude_max: Float @fdc_generated(from: "Location.latitude", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `longitude` field in the `Location` table.
+  """
+  longitude_max: Float @fdc_generated(from: "Location.longitude", purpose: QUERY_MAX)
+}
+extend type Rating {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Rating", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Rating` table.
+  """
+  _count: Int! @fdc_generated(from: "Rating", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Rating` table where the `comment` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  comment_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Rating.comment", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Rating` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Rating.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Rating` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Rating.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Rating` table where the `locationId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  locationId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Rating.locationId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Rating` table where the `rating` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  rating_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Rating.rating", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Rating` table where the `userUid` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userUid_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Rating.userUid", purpose: QUERY_COUNT)
+  """
+  ✨ Sum the `rating` field in the `Rating` table.
+  """
+  rating_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "Rating.rating", purpose: QUERY_SUM)
+  """
+  ✨ Average the `rating` field in the `Rating` table.
+  """
+  rating_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Rating.rating", purpose: QUERY_AVG)
+  """
+  ✨ Minimum of the `createdAt` field in the `Rating` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "Rating.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `rating` field in the `Rating` table.
+  """
+  rating_min: Int @fdc_generated(from: "Rating.rating", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `Rating` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "Rating.createdAt", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `rating` field in the `Rating` table.
+  """
+  rating_max: Int @fdc_generated(from: "Rating.rating", purpose: QUERY_MAX)
+}
+extend type Report {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Report", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Report` table.
+  """
+  _count: Int! @fdc_generated(from: "Report", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Report` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Report.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Report` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Report.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Report` table where the `locationId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  locationId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Report.locationId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Report` table where the `reason` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  reason_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Report.reason", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Report` table where the `userUid` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userUid_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Report.userUid", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `createdAt` field in the `Report` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "Report.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `Report` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "Report.createdAt", purpose: QUERY_MAX)
+}
+extend type User {
+  """
+  ✨ List `Favorite` objects in a one-to-many relationship (where `Favorite`.`user` is this object).
+  """
+  favorites_on_user(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Favorite_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Favorite_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Favorite_Having
+  ): [Favorite!]! @fdc_generated(from: "Favorite.user", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Location` objects in a one-to-many relationship (where `Location`.`creator` is this object).
+  """
+  locations_on_creator(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Location_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Location_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Location_Having
+  ): [Location!]! @fdc_generated(from: "Location.creator", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Rating` objects in a one-to-many relationship (where `Rating`.`user` is this object).
+  """
+  ratings_on_user(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Rating_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Rating_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Rating_Having
+  ): [Rating!]! @fdc_generated(from: "Rating.user", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Report` objects in a one-to-many relationship (where `Report`.`user` is this object).
+  """
+  reports_on_user(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Report_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Report_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Report_Having
+  ): [Report!]! @fdc_generated(from: "Report.user", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "User", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `User` table.
+  """
+  _count: Int! @fdc_generated(from: "User", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `bio` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  bio_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.bio", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `displayName` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  displayName_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.displayName", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `email` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  email_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.email", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `photoURL` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  photoURL_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.photoURL", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `uid` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  uid_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.uid", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `createdAt` field in the `User` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "User.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `User` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "User.createdAt", purpose: QUERY_MAX)
+}

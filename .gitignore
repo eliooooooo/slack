@@ -12,3 +12,6 @@
 /.firebase
 /firebase-debug.log
 /.firebaserc
+
+# Log files
+*.log

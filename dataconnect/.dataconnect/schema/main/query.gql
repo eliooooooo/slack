@@ -1,0 +1,262 @@
+extend type Query {
+  """
+  ✨ Look up a single `Favorite` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  favorite(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Favorite_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Favorite_FirstRow
+  ): Favorite @fdc_generated(from: "Favorite", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Location` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  location(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Location_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Location_FirstRow
+  ): Location @fdc_generated(from: "Location", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Rating` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  rating(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Rating_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Rating_FirstRow
+  ): Rating @fdc_generated(from: "Rating", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Report` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  report(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Report_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Report_FirstRow
+  ): Report @fdc_generated(from: "Report", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `User` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  user(
+    """
+    The key used to identify the object.
+    """
+    key: User_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: User_FirstRow
+  ): User @fdc_generated(from: "User", purpose: QUERY_SINGLE)
+  """
+  ✨ List `Favorite` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  favorites(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Favorite_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Favorite_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Favorite_Having
+  ): [Favorite!]! @fdc_generated(from: "Favorite", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Location` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  locations(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Location_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Location_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Location_Having
+  ): [Location!]! @fdc_generated(from: "Location", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Rating` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  ratings(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Rating_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Rating_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Rating_Having
+  ): [Rating!]! @fdc_generated(from: "Rating", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Report` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  reports(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Report_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Report_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Report_Having
+  ): [Report!]! @fdc_generated(from: "Report", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `User` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  users(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: User_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [User_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: User_Having
+  ): [User!]! @fdc_generated(from: "User", purpose: QUERY_MULTIPLE)
+}

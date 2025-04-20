@@ -1,0 +1,24 @@
+extend type Favorite {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Favorite", purpose: IMPLICIT_KEY_FIELD)
+}
+extend type Location {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Location", purpose: IMPLICIT_KEY_FIELD)
+}
+extend type Rating {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Rating", purpose: IMPLICIT_KEY_FIELD)
+}
+extend type Report {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Report", purpose: IMPLICIT_KEY_FIELD)
+}

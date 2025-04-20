@@ -1,0 +1,12 @@
+specVersion: "v1"
+serviceId: "slack-app-d30aa-service"
+location: "europe-west9"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "slack-app-d30aa-database"
+      cloudSql:
+        instanceId: "slack-app-d30aa-instance"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]

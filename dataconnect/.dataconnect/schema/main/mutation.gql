@@ -1,0 +1,552 @@
+extend type Mutation {
+  """
+  ✨ Insert a single `Favorite` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  favorite_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Favorite_Data!
+  ): Favorite_KeyOutput! @fdc_generated(from: "Favorite", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Location` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  location_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Location_Data!
+  ): Location_KeyOutput! @fdc_generated(from: "Location", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Rating` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  rating_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Rating_Data!
+  ): Rating_KeyOutput! @fdc_generated(from: "Rating", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Report` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  report_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Report_Data!
+  ): Report_KeyOutput! @fdc_generated(from: "Report", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `User` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  user_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: User_Data!
+  ): User_KeyOutput! @fdc_generated(from: "User", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert `Favorite` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  favorite_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Favorite_Data!]!
+  ): [Favorite_KeyOutput!]! @fdc_generated(from: "Favorite", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Location` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  location_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Location_Data!]!
+  ): [Location_KeyOutput!]! @fdc_generated(from: "Location", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Rating` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  rating_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Rating_Data!]!
+  ): [Rating_KeyOutput!]! @fdc_generated(from: "Rating", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Report` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  report_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Report_Data!]!
+  ): [Report_KeyOutput!]! @fdc_generated(from: "Report", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `User` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  user_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [User_Data!]!
+  ): [User_KeyOutput!]! @fdc_generated(from: "User", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert or update a single `Favorite` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Favorite`.
+  """
+  favorite_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Favorite_Data!
+  ): Favorite_KeyOutput! @fdc_generated(from: "Favorite", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Location` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Location`.
+  """
+  location_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Location_Data!
+  ): Location_KeyOutput! @fdc_generated(from: "Location", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Rating` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Rating`.
+  """
+  rating_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Rating_Data!
+  ): Rating_KeyOutput! @fdc_generated(from: "Rating", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Report` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Report`.
+  """
+  report_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Report_Data!
+  ): Report_KeyOutput! @fdc_generated(from: "Report", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `User` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `User`.
+  """
+  user_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: User_Data!
+  ): User_KeyOutput! @fdc_generated(from: "User", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update `Favorite` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Favorite`.
+  """
+  favorite_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Favorite_Data!]!
+  ): [Favorite_KeyOutput!]! @fdc_generated(from: "Favorite", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Location` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Location`.
+  """
+  location_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Location_Data!]!
+  ): [Location_KeyOutput!]! @fdc_generated(from: "Location", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Rating` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Rating`.
+  """
+  rating_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Rating_Data!]!
+  ): [Rating_KeyOutput!]! @fdc_generated(from: "Rating", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Report` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Report`.
+  """
+  report_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Report_Data!]!
+  ): [Report_KeyOutput!]! @fdc_generated(from: "Report", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `User` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `User`.
+  """
+  user_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [User_Data!]!
+  ): [User_KeyOutput!]! @fdc_generated(from: "User", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Update a single `Favorite` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Favorite` or `null` if not found.
+  """
+  favorite_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Favorite_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Favorite_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Favorite_Data!
+  ): Favorite_KeyOutput @fdc_generated(from: "Favorite", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Location` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Location` or `null` if not found.
+  """
+  location_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Location_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Location_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Location_Data!
+  ): Location_KeyOutput @fdc_generated(from: "Location", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Rating` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Rating` or `null` if not found.
+  """
+  rating_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Rating_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Rating_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Rating_Data!
+  ): Rating_KeyOutput @fdc_generated(from: "Rating", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Report` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Report` or `null` if not found.
+  """
+  report_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Report_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Report_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Report_Data!
+  ): Report_KeyOutput @fdc_generated(from: "Report", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `User` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `User` or `null` if not found.
+  """
+  user_update(
+    """
+    The key used to identify the object.
+    """
+    key: User_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: User_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: User_Data!
+  ): User_KeyOutput @fdc_generated(from: "User", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update `Favorite` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  favorite_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Favorite_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Favorite_Data!
+  ): Int! @fdc_generated(from: "Favorite", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Location` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  location_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Location_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Location_Data!
+  ): Int! @fdc_generated(from: "Location", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Rating` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  rating_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Rating_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Rating_Data!
+  ): Int! @fdc_generated(from: "Rating", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Report` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  report_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Report_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Report_Data!
+  ): Int! @fdc_generated(from: "Report", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `User` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  user_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: User_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: User_Data!
+  ): Int! @fdc_generated(from: "User", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Delete a single `Favorite` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  favorite_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Favorite_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Favorite_FirstRow
+  ): Favorite_KeyOutput @fdc_generated(from: "Favorite", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Location` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  location_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Location_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Location_FirstRow
+  ): Location_KeyOutput @fdc_generated(from: "Location", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Rating` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  rating_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Rating_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Rating_FirstRow
+  ): Rating_KeyOutput @fdc_generated(from: "Rating", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Report` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  report_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Report_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Report_FirstRow
+  ): Report_KeyOutput @fdc_generated(from: "Report", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `User` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  user_delete(
+    """
+    The key used to identify the object.
+    """
+    key: User_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: User_FirstRow
+  ): User_KeyOutput @fdc_generated(from: "User", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete `Favorite` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  favorite_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Favorite_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Favorite", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Location` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  location_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Location_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Location", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Rating` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  rating_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Rating_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Rating", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Report` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  report_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Report_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Report", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `User` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  user_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: User_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "User", purpose: DELETE_MULTIPLE)
+}

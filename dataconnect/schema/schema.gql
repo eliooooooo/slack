@@ -1,0 +1,51 @@
+type User @table(key: "uid") {
+  uid: String! @default(expr: "auth.uid")
+  displayName: String
+  email: String
+  photoURL: String
+  createdAt: Timestamp! @default(expr: "request.time")
+  bio: String
+}
+
+type Location @table {
+  creatorUid: String!
+  latitude: Float!
+  longitude: Float!
+  name: String!
+  activityType: String!
+  createdAt: Timestamp! @default(expr: "request.time")
+  description: String
+  difficulty: Int
+  accessInfo: String
+  hazards: String
+  imageUrls: [String]
+  creator: User! @ref(fields: "creatorUid", references: "uid")
+}
+
+type Rating @table {
+  userUid: String!
+  locationId: UUID!
+  rating: Int!
+  createdAt: Timestamp! @default(expr: "request.time")
+  comment: String
+  user: User! @ref(fields: "userUid", references: "uid")
+  location: Location!
+}
+
+type Favorite @table {
+  userUid: String!
+  locationId: UUID!
+  createdAt: Timestamp! @default(expr: "request.time")
+  user: User! @ref(fields: "userUid", references: "uid")
+  location: Location!
+}
+
+type Report @table {
+  userUid: String!
+  locationId: UUID!
+  reason: String!
+  createdAt: Timestamp! @default(expr: "request.time")
+  user: User! @ref(fields: "userUid", references: "uid")
+  location: Location!
+}
+
