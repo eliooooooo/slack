@@ -130,10 +130,11 @@ To access the data returned by a Query, use the `UseQueryResult.data` field. The
 ```javascript
 export interface GetLocationData {
   location?: {
+    id: UUIDString;
     latitude: number;
     longitude: number;
     name: string;
-  };
+  } & Location_Key;
 }
 ```
 

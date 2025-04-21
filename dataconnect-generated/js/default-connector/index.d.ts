@@ -15,10 +15,11 @@ export interface Favorite_Key {
 
 export interface GetLocationData {
   location?: {
+    id: UUIDString;
     latitude: number;
     longitude: number;
     name: string;
-  };
+  } & Location_Key;
 }
 
 export interface Location_Key {
@@ -41,14 +42,10 @@ export interface User_Key {
   __typename?: 'User_Key';
 }
 
-interface GetLocationRef {
-  /* Allow users to create refs without passing in DataConnect */
-  (): QueryRef<GetLocationData, undefined>;
-  /* Allow users to pass in custom DataConnect instances */
-  (dc: DataConnect): QueryRef<GetLocationData, undefined>;
-  operationName: string;
-}
-export const getLocationRef: GetLocationRef;
+/* Allow users to create refs without passing in DataConnect */
+export function getLocationRef(): QueryRef<GetLocationData, undefined>;
+/* Allow users to pass in custom DataConnect instances */
+export function getLocationRef(dc: DataConnect): QueryRef<GetLocationData, undefined>;
 
 export function getLocation(): QueryPromise<GetLocationData, undefined>;
 export function getLocation(dc: DataConnect): QueryPromise<GetLocationData, undefined>;

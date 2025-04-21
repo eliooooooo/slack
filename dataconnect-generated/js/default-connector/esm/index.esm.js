@@ -6,12 +6,11 @@ export const connectorConfig = {
   location: 'europe-west9'
 };
 
-export const getLocationRef = (dc) => {
+export function getLocationRef(dc) {
   const { dc: dcInstance} = validateArgs(connectorConfig, dc, undefined);
   dcInstance._useGeneratedSdk();
   return queryRef(dcInstance, 'GetLocation');
 }
-getLocationRef.operationName = 'GetLocation';
 
 export function getLocation(dc) {
   return executeQuery(getLocationRef(dc));

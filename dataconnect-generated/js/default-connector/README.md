@@ -1,5 +1,5 @@
 # Table of Contents
-- [**Overview**](#generated-javascript-readme)
+- [**Overview**](#generated-typescript-readme)
 - [**Accessing the connector**](#accessing-the-connector)
   - [*Connecting to the local Emulator*](#connecting-to-the-local-emulator)
 - [**Queries**](#queries)
@@ -7,7 +7,7 @@
 - [**Mutations**](#mutations)
 
 # Generated TypeScript README
-This README will guide you through the process of using the generated JavaScript SDK package for the connector `default`. It will also provide examples on how to use your generated SDK to call your Data Connect queries and mutations.
+This README will guide you through the process of using the generated TypeScript SDK package for the connector `default`. It will also provide examples on how to use your generated SDK to call your Data Connect queries and mutations.
 
 ***NOTE:** This README is generated alongside the generated SDK. If you make changes to this file, they will be overwritten when the SDK is regenerated.*
 
@@ -20,7 +20,7 @@ A connector is a collection of Queries and Mutations. One SDK is generated for e
 
 You can find more information about connectors in the [Data Connect documentation](https://firebase.google.com/docs/data-connect#how-does).
 
-```typescript
+```javascript
 import { getDataConnect } from 'firebase/data-connect';
 import { connectorConfig } from '@firebasegen/default-connector';
 
@@ -33,7 +33,7 @@ By default, the connector will connect to the production service.
 To connect to the emulator, you can use the following code.
 You can also follow the emulator instructions from the [Data Connect documentation](https://firebase.google.com/docs/data-connect/web-sdk#instrument-clients).
 
-```typescript
+```javascript
 import { connectDataConnectEmulator, getDataConnect } from 'firebase/data-connect';
 import { connectorConfig } from '@firebasegen/default-connector';
 
@@ -60,31 +60,16 @@ Below are examples of how to use the `default` connector's generated functions t
 
 ## GetLocation
 You can execute the `GetLocation` query using the following action shortcut function, or by calling `executeQuery()` after calling the following `QueryRef` function, both of which are defined in [default-connector/index.d.ts](./index.d.ts):
-```typescript
+```javascript
 getLocation(): QueryPromise<GetLocationData, undefined>;
 
-interface GetLocationRef {
-  ...
-  /* Allow users to create refs without passing in DataConnect */
-  (): QueryRef<GetLocationData, undefined>;
-}
-export const getLocationRef: GetLocationRef;
+getLocationRef(): QueryRef<GetLocationData, undefined>;
 ```
 You can also pass in a `DataConnect` instance to the action shortcut function or `QueryRef` function.
-```typescript
+```javascript
 getLocation(dc: DataConnect): QueryPromise<GetLocationData, undefined>;
 
-interface GetLocationRef {
-  ...
-  (dc: DataConnect): QueryRef<GetLocationData, undefined>;
-}
-export const getLocationRef: GetLocationRef;
-```
-
-If you need the name of the operation without creating a ref, you can retrieve the operation name by calling the `operationName` property on the getLocationRef:
-```typescript
-const name = getLocationRef.operationName;
-console.log(name);
+getLocationRef(dc: DataConnect): QueryRef<GetLocationData, undefined>;
 ```
 
 ### Variables
@@ -93,18 +78,19 @@ The `GetLocation` query has no variables.
 Recall that executing the `GetLocation` query returns a `QueryPromise` that resolves to an object with a `data` property.
 
 The `data` property is an object of type `GetLocationData`, which is defined in [default-connector/index.d.ts](./index.d.ts). It has the following fields:
-```typescript
+```javascript
 export interface GetLocationData {
   location?: {
+    id: UUIDString;
     latitude: number;
     longitude: number;
     name: string;
-  };
+  } & Location_Key;
 }
 ```
 ### Using `GetLocation`'s action shortcut function
 
-```typescript
+```javascript
 import { getDataConnect } from 'firebase/data-connect';
 import { connectorConfig, getLocation } from '@firebasegen/default-connector';
 
@@ -128,7 +114,7 @@ getLocation().then((response) => {
 
 ### Using `GetLocation`'s `QueryRef` function
 
-```typescript
+```javascript
 import { getDataConnect, executeQuery } from 'firebase/data-connect';
 import { connectorConfig, getLocationRef } from '@firebasegen/default-connector';
 

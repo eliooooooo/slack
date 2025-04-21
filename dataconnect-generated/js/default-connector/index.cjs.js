@@ -7,12 +7,11 @@ const connectorConfig = {
 };
 exports.connectorConfig = connectorConfig;
 
-const getLocationRef = (dc) => {
+function getLocationRef(dc) {
   const { dc: dcInstance} = validateArgs(connectorConfig, dc, undefined);
   dcInstance._useGeneratedSdk();
   return queryRef(dcInstance, 'GetLocation');
 }
-getLocationRef.operationName = 'GetLocation';
 exports.getLocationRef = getLocationRef;
 
 exports.getLocation = function getLocation(dc) {
