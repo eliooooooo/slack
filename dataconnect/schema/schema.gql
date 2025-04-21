@@ -48,4 +48,3 @@ type Report @table {
   user: User! @ref(fields: "userUid", references: "uid")
   location: Location!
 }
-

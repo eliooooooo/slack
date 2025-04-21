@@ -9,6 +9,7 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
     "@react-router/node": "^7.4.1",
     "@react-router/serve": "^7.4.1",
     "cors": "^2.8.5",
